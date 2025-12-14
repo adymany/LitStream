@@ -1,0 +1,26 @@
+[
+    {
+        "id": "local-0",
+        "title": "Stranger-Things-s5-e1_1080p",
+        "thumbnail": "",
+        "videoUrl": "/videos/Stranger-Things-s5-e1_1080p.mp4"
+    },
+    {
+        "id": "local-1",
+        "title": "Stranger-Things-s5-e2_1080p",
+        "thumbnail": "",
+        "videoUrl": "/videos/Stranger-Things-s5-e2_1080p.mp4"
+    },
+    {
+        "id": "local-2",
+        "title": "Stranger-Things-s5-e3_1080p",
+        "thumbnail": "",
+        "videoUrl": "/videos/Stranger-Things-s5-e3_1080p.mp4"
+    },
+    {
+        "id": "local-3",
+        "title": "Stranger-Things-s5-e4_1080p",
+        "thumbnail": "",
+        "videoUrl": "/videos/Stranger-Things-s5-e4_1080p.mp4"
+    }
+]
