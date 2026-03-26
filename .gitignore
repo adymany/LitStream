@@ -25,6 +25,16 @@ Thumbs.db
 *.log
 npm-debug.log*
 
+# FFmpeg binaries
+ffmpeg-7.0.2-amd64-static/
+ffmpeg-release-amd64-static.tar.xz
+
+# Video files (Stored on Home PC storage - Served via Tunnel)
+public/videos/*.mp4
+public/videos/*.m3u8
+public/videos/*.ts
+public/videos/*.vtt
+
 # Temporary files
 *.tmp
 token.txt

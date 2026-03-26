@@ -151,12 +151,39 @@ export function VideoPlayer({ src, poster, autoPlay = false, subtitleUrl }: Vide
         };
     }, []);
 
-    // Autoplay
+    // HLS Support
     useEffect(() => {
-        if (autoPlay && videoRef.current) {
-            videoRef.current.play().catch(() => { });
-        }
-    }, [autoPlay, src]);
+        const video = videoRef.current;
+        if (!video || !src.endsWith('.m3u8')) return;
+
+        let hls: any;
+        
+        // Dynamic import logic (requires hls.js script in index.html or npm package)
+        const initHls = () => {
+            const Hls = (window as any).Hls;
+            if (Hls) {
+                if (Hls.isSupported()) {
+                    hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                        if (autoPlay) video.play().catch(() => {});
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                    if (autoPlay) video.play().catch(() => {});
+                }
+            }
+        };
+
+        initHls();
+
+        return () => {
+            if (hls) {
+                hls.destroy();
+            }
+        };
+    }, [src, autoPlay]);
 
     // Fullscreen change listener
     useEffect(() => {
