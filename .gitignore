@@ -25,13 +25,6 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Video files (stored in cloud - Backblaze B2)
-public/videos/*.mp4
-public/videos/*.webm
-public/videos/*.mkv
-public/videos/*.mov
-public/videos/*.vtt
-
 # Temporary files
 *.tmp
 token.txt
