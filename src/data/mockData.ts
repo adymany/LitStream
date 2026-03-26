@@ -6,6 +6,7 @@ export interface Content {
   thumbnail: string;
   videoUrl: string;
   subtitleUrl?: string;
+  downloadUrl?: string;
   description: string;
   year: number;
   maturityRating: string;
@@ -219,6 +220,7 @@ function transformLegacyVideos(): Content[] {
       thumbnail: video.thumbnail || '',
       videoUrl: getVideoUrl(video.videoUrl),
       subtitleUrl: video.subtitleUrl ? getSubtitleUrl(video.subtitleUrl) : undefined,
+      downloadUrl: video.downloadUrl ? getVideoUrl(video.downloadUrl) : undefined,
       description: parsed.season
         ? `Season ${parsed.season}, Episode ${parsed.episode}`
         : 'Watch now on LitStream',

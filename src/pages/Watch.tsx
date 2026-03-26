@@ -1,5 +1,5 @@
 import { useSearchParams, Link } from "react-router-dom";
-import { Play, Plus, ThumbsUp, Share2, ChevronLeft } from "lucide-react";
+import { Play, Plus, ThumbsUp, Share2, ChevronLeft, Download } from "lucide-react";
 import { videos } from "../data/mockData";
 import { VideoPlayer } from "../components/VideoPlayer";
 import { ContentRow } from "../components/ContentRow";
@@ -92,6 +92,11 @@ export function Watch() {
               <button className="watch-btn watch-btn-icon">
                 <Share2 />
               </button>
+              {content.downloadUrl && (
+                <a href={content.downloadUrl} download className="watch-btn watch-btn-icon" title="Download Offline">
+                  <Download />
+                </a>
+              )}
             </div>
           </div>
 
