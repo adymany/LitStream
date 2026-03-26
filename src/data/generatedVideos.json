@@ -1,26 +1,17 @@
 [
-    {
-        "id": "local-0",
-        "title": "Stranger-Things-s5-e1_1080p",
-        "thumbnail": "",
-        "videoUrl": "/videos/Stranger-Things-s5-e1_1080p.mp4"
-    },
-    {
-        "id": "local-1",
-        "title": "Stranger-Things-s5-e2_1080p",
-        "thumbnail": "",
-        "videoUrl": "/videos/Stranger-Things-s5-e2_1080p.mp4"
-    },
-    {
-        "id": "local-2",
-        "title": "Stranger-Things-s5-e3_1080p",
-        "thumbnail": "",
-        "videoUrl": "/videos/Stranger-Things-s5-e3_1080p.mp4"
-    },
-    {
-        "id": "local-3",
-        "title": "Stranger-Things-s5-e4_1080p",
-        "thumbnail": "",
-        "videoUrl": "/videos/Stranger-Things-s5-e4_1080p.mp4"
-    }
+  {
+    "id": "local-0",
+    "title": "The-Voice-of-Hind-Rajab_1080p",
+    "thumbnail": "",
+    "channelName": "Local User",
+    "channelAvatar": "https://github.com/shadcn.png",
+    "views": "0",
+    "uploadedAt": "Just now",
+    "duration": "Unknown",
+    "description": "Local video file",
+    "likes": "0",
+    "channelId": "local-user",
+    "videoUrl": "/videos/The-Voice-of-Hind-Rajab_1080p.mp4",
+    "subtitleUrl": "/videos/The-Voice-of-Hind-Rajab_1080p-English---Canadian-(SDH).vtt"
+  }
 ]

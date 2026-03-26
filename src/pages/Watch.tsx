@@ -43,6 +43,7 @@ export function Watch() {
             key={content.id}
             src={content.videoUrl}
             poster={content.thumbnail}
+            subtitleUrl={content.subtitleUrl}
             autoPlay
           />
         ) : (

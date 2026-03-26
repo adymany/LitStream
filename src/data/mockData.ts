@@ -5,6 +5,7 @@ export interface Content {
   title: string;
   thumbnail: string;
   videoUrl: string;
+  subtitleUrl?: string;
   description: string;
   year: number;
   maturityRating: string;
@@ -47,7 +48,7 @@ const B2_AUTH_TOKEN = import.meta.env.VITE_B2_AUTH_TOKEN || '';
  * @param localPath - The local video path (e.g., "/videos/movie.mp4")
  * @returns Full URL for the video
  */
-export function getVideoUrl(localPath: string): string {
+function getCdnUrl(localPath: string): string {
   if (CDN_BASE_URL) {
     // In production, use CDN URL
     // localPath: "/videos/movie.mp4" -> CDN_BASE_URL + "/videos/movie.mp4"
@@ -62,6 +63,14 @@ export function getVideoUrl(localPath: string): string {
   }
   // In development, use local path
   return localPath;
+}
+
+export function getVideoUrl(localPath: string): string {
+  return getCdnUrl(localPath);
+}
+
+export function getSubtitleUrl(localPath: string): string {
+  return getCdnUrl(localPath);
 }
 
 // Helper function to parse title for series info
@@ -209,6 +218,7 @@ function transformLegacyVideos(): Content[] {
       title: parsed.title,
       thumbnail: video.thumbnail || '',
       videoUrl: getVideoUrl(video.videoUrl),
+      subtitleUrl: video.subtitleUrl ? getSubtitleUrl(video.subtitleUrl) : undefined,
       description: parsed.season
         ? `Season ${parsed.season}, Episode ${parsed.episode}`
         : 'Watch now on LitStream',
@@ -243,5 +253,4 @@ export function getFeaturedContent(): Content | undefined {
   return videos[0];
 }
 
-// For backwards compatibility - keeping videos export
-// but removing YouTube-specific exports
+// For backwards compatibility

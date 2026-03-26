@@ -24,9 +24,13 @@ function scanVideos() {
   });
 
   const generatedVideos = videoFiles.map((file, index) => {
+    const baseName = path.basename(file, path.extname(file));
+    // Find matching vtt file
+    const vttFile = files.find(f => f.startsWith(baseName) && f.endsWith('.vtt'));
+    
     return {
       id: `local-${index}`,
-      title: path.basename(file, path.extname(file)), // Filename as title
+      title: baseName, // Filename as title
       thumbnail: "", // Empty thumbnail to trigger video frame fallback
       channelName: "Local User",
       channelAvatar: "https://github.com/shadcn.png",
@@ -36,7 +40,8 @@ function scanVideos() {
       description: "Local video file",
       likes: "0",
       channelId: "local-user",
-      videoUrl: `/videos/${file}`
+      videoUrl: `/videos/${file}`,
+      subtitleUrl: vttFile ? `/videos/${vttFile}` : undefined
     };
   });
 

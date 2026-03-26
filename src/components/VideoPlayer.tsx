@@ -2,12 +2,13 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Minimize, SkipBack, SkipForward } from 'lucide-react';
 
 interface VideoPlayerProps {
+    subtitleUrl?: string;
     src: string;
     poster?: string;
     autoPlay?: boolean;
 }
 
-export function VideoPlayer({ src, poster, autoPlay = false }: VideoPlayerProps) {
+export function VideoPlayer({ src, poster, autoPlay = false, subtitleUrl }: VideoPlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const progressRef = useRef<HTMLDivElement>(null);
@@ -212,6 +213,7 @@ export function VideoPlayer({ src, poster, autoPlay = false }: VideoPlayerProps)
                 ref={videoRef}
                 src={src}
                 poster={poster}
+                crossOrigin="anonymous"
                 style={{
                     width: '100%',
                     height: '100%',
@@ -221,7 +223,17 @@ export function VideoPlayer({ src, poster, autoPlay = false }: VideoPlayerProps)
                 onClick={togglePlay}
                 onDoubleClick={toggleFullscreen}
                 playsInline
-            />
+            >
+                {subtitleUrl && (
+                    <track
+                        kind="subtitles"
+                        src={subtitleUrl}
+                        srcLang="en"
+                        label="English"
+                        default
+                    />
+                )}
+            </video>
 
             {/* Center Play Button (when paused) */}
             {!isPlaying && (

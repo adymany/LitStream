@@ -30,6 +30,7 @@ public/videos/*.mp4
 public/videos/*.webm
 public/videos/*.mkv
 public/videos/*.mov
+public/videos/*.vtt
 
 # Temporary files
 *.tmp
