@@ -1,4 +1,4 @@
-import { Play, Info } from "lucide-react";
+import { Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Content } from "../data/mockData";
 
@@ -38,15 +38,6 @@ export function HeroSection({ content }: HeroSectionProps) {
                     {/* Title */}
                     <h1 className="hero-title">{content.title}</h1>
 
-                    {/* Metadata */}
-                    <div className="hero-meta">
-                        <span className="hero-match">{content.match}% Match</span>
-                        <span className="hero-year">{content.year}</span>
-                        <span className="hero-rating">{content.maturityRating}</span>
-                        {content.type === 'series' && content.season && (
-                            <span className="hero-season">Season {content.season}</span>
-                        )}
-                    </div>
 
                     {/* Description */}
                     <p className="hero-description">{content.description}</p>
@@ -69,13 +60,6 @@ export function HeroSection({ content }: HeroSectionProps) {
                         >
                             <Play className="hero-btn-icon" fill="currentColor" />
                             Play
-                        </Link>
-                        <Link
-                            to={`/watch?v=${content.id}`}
-                            className="hero-btn hero-btn-info"
-                        >
-                            <Info className="hero-btn-icon" />
-                            More Info
                         </Link>
                     </div>
                 </div>
