@@ -34,6 +34,7 @@ public/videos/*.mp4
 public/videos/*.m3u8
 public/videos/*.ts
 public/videos/*.vtt
+public/videos/*.mkv
 
 # Temporary files
 *.tmp
